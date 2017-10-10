@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test-unit && npm run test-integration && npm run test-contract",
     "test-integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/*.js",
     "test-unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*.js",
+    "test-contract": "NODE_ENV=test mocha --opts test/contracts/mocha.opts test/contracts/**/*.js",
     "lint": "eslint '**/*.js'",
     "lint:fix": "eslint '**/*.js' --fix"
   },
@@ -26,6 +27,8 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "joi": "^11.3.4",
+    "joi-assert": "0.0.3",
     "mocha": "^4.0.1",
     "supertest": "^3.0.0",
     "testdouble": "^3.2.6"
